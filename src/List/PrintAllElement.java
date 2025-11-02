@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -143,14 +144,13 @@ public class PrintAllElement {
 		words.stream().map(x -> x.length()).forEach(x -> System.out.print(x+" "));
 		
 		//22.Given a list of sentences, extract all unique words using flatMap()
-		System.out.println("\nlist of sentences,extract all unique words: ");
-		List<String> sentences=Arrays.asList("Find the one odd and one even out: ");
-	    System.out.println(sentences.stream().distinct()
-	    		.flatMap(sentence -> Arrays.stream(sentence.split(",")))
-	    		
-	    		.toList()	    		
-	    		);
-		
+		System.out.println("\n\nlist of sentences,extract all unique words: ");
+		List<String> sentences=Arrays.asList("java is powerful","java is varsatile","java makes stream API");
+	    Set<String> uniqueWords=sentences.stream()
+	    		.flatMap(sentence -> Arrays.stream(sentence.split("")))
+	    		.map(String::toLowerCase)
+	    		.collect(Collectors.toSet());
+		System.out.println(uniqueWords);
 		//23.		
 		
 		
