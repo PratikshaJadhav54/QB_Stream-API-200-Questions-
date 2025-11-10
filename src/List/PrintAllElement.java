@@ -3,6 +3,7 @@ package List;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -145,14 +146,31 @@ public class PrintAllElement {
 		
 		//22.Given a list of sentences, extract all unique words using flatMap()
 		System.out.println("\n\nlist of sentences,extract all unique words: ");
-		List<String> sentences=Arrays.asList("java is powerful","java is varsatile","java makes stream API");
+		List<String> sentences=Arrays.asList("java is powerful","java stream API is powerful","stream help process data");
 	    Set<String> uniqueWords=sentences.stream()
-	    		.flatMap(sentence -> Arrays.stream(sentence.split("")))
+	    		.flatMap(sentence -> Arrays.stream(sentence.split("\\s+")))
 	    		.map(String::toLowerCase)
 	    		.collect(Collectors.toSet());
 		System.out.println(uniqueWords);
-		//23.		
-		//gfjdfdfgjdgfdshfksgdgdjgjgjdfgdfghdf
+		
+		//23.. Find the average of all integers in a list using streams.
+		System.out.println("\nFind the average of all integer number: ");
+		List<Integer> averageFind=Arrays.asList(12,23,4,2,1,43,53,2);
+		double average=averageFind.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+		System.out.println("Average: "+average);
+		
+		//24.Given a list of numbers, find the second highest number using streams.
+		System.out.println("\nfindout second highest number: ");
+		List<Integer> secondNumber=Arrays.asList(12,23,3,4,5,6,2);
+		int highestsecondNo=secondNumber.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().orElseThrow(()->new NoSuchElementException("second highest number not found"));
+		System.out.println(highestsecondNo);
+		
+		//25.Find the second lowest number in a list using streams
+		System.out.println("\nfindout second lowest number: ");
+		List<Integer> lowestNumber=Arrays.asList(12,23,43,5,6,7,8,2,1);
+		int lowestNo=lowestNumber.stream().sorted().skip(1).findFirst().orElseThrow(()->new NoSuchElementException("No second lowest number found"));
+		System.out.println(lowestNo);
+		
 		
 		
 	}
