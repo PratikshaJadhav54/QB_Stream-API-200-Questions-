@@ -171,6 +171,8 @@ public class PrintAllElement {
 		int lowestNo=lowestNumber.stream().sorted().skip(1).findFirst().orElseThrow(()->new NoSuchElementException("No second lowest number found"));
 		System.out.println(lowestNo);
 		
+		//26.Convert a list of strings into a Map<String, Integer> where key = string, value =its length
+		System.out.println("Convert list String into integer: ");
 		
 		
 	}
