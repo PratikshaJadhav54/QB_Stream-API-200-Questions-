@@ -3,6 +3,7 @@ package List;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
@@ -172,7 +173,48 @@ public class PrintAllElement {
 		System.out.println(lowestNo);
 		
 		//26.Convert a list of strings into a Map<String, Integer> where key = string, value =its length
-		System.out.println("Convert list String into integer: ");
+		System.out.println("\nConvert list String into integer: ");
+		List<String> listlength=Arrays.asList("pooja","rahul","ram","mohan");
+		Map<String, Integer> map=listlength.stream().collect(Collectors.toMap(str -> str, str -> str.length()));
+		System.out.println(map);
+		
+		//27.Group a list of strings by their first letter using Collectors.groupingBy() .
+		System.out.println("\nGroup a list of strings by their first letter: ");
+		List<String> firstletter=Arrays.asList("pooja","mohan","rahul","Ram","prathmesh");
+       		Map<Character,List<String>> grouped=firstletter.stream().collect(Collectors.groupingBy(s ->s.charAt(0)));
+		System.out.println(grouped);
+		
+		//28.. Partition a list of integers into even and odd using partitioningBy() .
+		System.out.println("\nPartition a list of integer into even anf odd: ");
+		List<Integer> partitionEvenOdd=Arrays.asList(12,23,132,233,43,23,44);
+		Map<Boolean,List<Integer>> partioned=partitionEvenOdd.stream().collect(Collectors.partitioningBy(x -> x%2==0));
+		System.out.println(partioned);
+		
+		//29.Given a list of integers, find the product of all numbers using reduce() .
+		System.out.println("\nfind the produce of all numbers using reduce(): ");
+		List<Integer> prodoutFind=Arrays.asList(12,2,2);
+		int product=prodoutFind.stream().reduce(1,(a,b)->a*b);
+		System.out.println(product);
+		
+		//30. Join all strings in a list with “ - ” as separator using Collectors.joining()
+		System.out.println("\nJoin all strings with -: ");
+		List<String> joinString=Arrays.asList("chetan","nilesh","nakul","raj");
+		String joiningString=joinString.stream().collect(Collectors.joining(" - "));
+		System.out.println(joiningString);
+		
+		//31.Remove duplicates, sort alphabetically, and collect results into a list.
+		System.out.println("\nRemove duplicate and sort alphabetically: ");
+		List<String> removeDuplicateSort=Arrays.asList("Akshay","mohan","raj","payal","chetan","rohit");
+		removeDuplicateSort.stream().distinct().sorted().forEach(x -> System.out.print(x+", "));
+		
+		//32.From a list of names, find those that contain the letter “e” and are longer than 4 characters.
+		System.out.println("\nfind those that contain the letter “e” and are longer than 4 characters: ");
+		List<String> cars=Arrays.asList("suzuki","eartiga","tvs");
+		cars.stream().map(x -> x.startsWith("E")).forEach(x -> System.out.println(x));
+		
+		
+		
+		
 		
 		
 	}
