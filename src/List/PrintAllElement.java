@@ -208,14 +208,29 @@ public class PrintAllElement {
 		removeDuplicateSort.stream().distinct().sorted().forEach(x -> System.out.print(x+", "));
 		
 		//32.From a list of names, find those that contain the letter “e” and are longer than 4 characters.
-		System.out.println("\nfind those that contain the letter “e” and are longer than 4 characters: ");
+		System.out.println("\n\nfind those that contain the letter “e” and are longer than 4 characters: ");
 		List<String> cars=Arrays.asList("suzuki","eartiga","tvs");
-		cars.stream().map(x -> x.startsWith("E")).forEach(x -> System.out.println(x));
+//		cars.stream().forEach(x -> System.out.println(x));
 		
 		
+		//33.Limit the stream to the first 5 elements and collect them into a list.
+		System.out.println("\nLimit the stream to first 5 element collect into list: ");
+		List<Integer> limitOfElement=Arrays.asList(12,23,34,5,43,45,8);
+		List<Integer> limit=limitOfElement.stream().limit(5).collect(Collectors.toList());
+		System.out.println(limit);
 		
+		//34.Skip the first 3 elements in a list and print the rest
+		System.out.println("\nSkip the first 3 element: ");
+		List<String> skipElement=Arrays.asList("Pooja","mohan","raj","ashish","chetan","rohit","gopal");
+		skipElement.stream().skip(3).forEach(x -> System.out.print(x+", "));
 		
-		
-		
+		//35.Convert a list of lists into a single flat list of integers using flatMap()
+		System.out.println("\n\nConvert list of lists into single flat list of integer");
+		List<List<Integer>> convertList=Arrays.asList(Arrays.asList(12,213),Arrays.asList(345,43,23),Arrays.asList(12,12));
+		List<Integer> flatlist=convertList.stream().flatMap(lists -> lists.stream()).collect(Collectors.toList());
+	    System.out.println(flatlist);
+	    
+	
+	    
 	}
 }
