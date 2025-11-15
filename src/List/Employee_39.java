@@ -2,34 +2,49 @@ package List;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-//39. Group a list of employees by department using Collectors.groupingBy()
 public class Employee_39 {
+		
+		static class Employee {
+	        String name;
+	        String department;
 
-	private int id;
-	private String name;
-	private String department;
-	
-	public Employee_39(int id,String name,String department)
-	{
-		this.id=id;
-		this.name=name;
-		this.department=department;
-	}
-	
-	public String getDepartment()
-	{
-		return department;
-	}
-	
-	public static void main(String[] args) {
-		
-		List<Employee_36> extractUnique=Arrays.asList(
-				new Employee_36(101,"nilesh","Full stack development"),
-				new Employee_36(102, "chetan","IT"),
-				new Employee_36(103, "rohit", "Testing"),
-				new Employee_36(104, "rohit", "Testing"));
-		
-//		extractUnique.stream().map()
-	}
+	        Employee(String name, String department) {
+	            this.name = name;
+	            this.department = department;
+	        }
+
+	        String getName() {
+	            return name;
+	        }
+
+	        String getDepartment() {
+	            return department;
+	        }
+	    }
+
+	    public static void main(String[] args) {
+
+	        // Employee list
+	        List<Employee> employees = Arrays.asList(
+	                new Employee("Rohit", "HR"),
+	                new Employee("Sneha", "IT"),
+	                new Employee("Amit", "Finance"),
+	                new Employee("Priya", "IT"),
+	                new Employee("Kiran", "HR")
+	        );
+
+	        // Group by department
+	        Map<String, List<Employee>> grouped =
+	                employees.stream()
+	                        .collect(Collectors.groupingBy(Employee::getDepartment));
+
+	        // Print grouped result
+	        grouped.forEach((dept, empList) -> {
+	            System.out.println(dept + ":");
+	            empList.forEach(e -> System.out.println("  - " + e.getName()));
+	        });
+	    }
 }
