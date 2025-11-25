@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class AllSetQuestions {
 
@@ -51,7 +52,10 @@ public class AllSetQuestions {
 		System.out.println("\n\nPrint only name start with A");
 		startWith.stream().filter(x -> x.startsWith("A")).forEach(x -> System.out.print(x+", "));
 		
-		
+		//5.. Convert a Set<Integer> to a sorted list using Stream API.
+		Set<Integer> sortedlist= Set.of(90,56,2,1,9,6);
+		System.out.println("\n\nSorted list Print");
+		sortedlist.stream().sorted().forEach(x -> System.out.print(x+", "));
 		
 		
 		
