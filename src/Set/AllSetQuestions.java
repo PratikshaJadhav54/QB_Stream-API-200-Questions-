@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class AllSetQuestions {
 
@@ -57,9 +58,17 @@ public class AllSetQuestions {
 		System.out.println("\n\nSorted list Print");
 		sortedlist.stream().sorted().forEach(x -> System.out.print(x+", "));
 		
-		
-		
-		
+		//6.Remove all null or empty strings from a list using streams
+		Set<String> numberlist=new HashSet<String>();
+		System.out.println("\n\nRemove all null or empty strings from a list using streams");
+        numberlist.add("");
+        numberlist.add("Mohan");
+        numberlist.add("pooja");
+        numberlist.add(null);
+        numberlist.add("Vaibhav");
+        
+        Set<String> cleanedSet=numberlist.stream().filter(x -> x!=null && !x.isEmpty()).collect(Collectors.toSet());
+		System.out.println(cleanedSet);
 		
 		
 		
