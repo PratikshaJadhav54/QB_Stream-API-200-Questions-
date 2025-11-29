@@ -1,8 +1,10 @@
 package Set;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -71,8 +73,41 @@ public class AllSetQuestions {
 		System.out.println(cleanedSet);
 		
 		
+		//7.Find the maximum element in a Set<Integer> using streams.
+		Set<Integer> maxnumber=Set.of(12,7,67,89,65,4);
+		System.out.println("\nMaximum Number: ");
+		System.out.println(maxnumber.stream().max(Integer::compareTo).get());
 		
-		
-		
+		//8.Find the minimum element in a Set<Integer> using streams.
+		Set<Integer> minnumber=Set.of(12,7,67,89,65,4);
+		System.out.println("\nMinimum Number: ");
+        System.out.println(minnumber.stream().min(Integer::compareTo).get());	
+        
+        //9.Calculate the sum of all integers in a Set<Integer> using reduce()
+        Set<Integer> sumOfNumber=Set.of(12,7,67,89,65,4);
+        System.out.println("\nSum Of All Numbers: ");
+        Optional<Integer> sum=sumOfNumber.stream().reduce((x,y)->x+y);
+        System.out.println(sum);
+        
+        //10.Check if any element in a Set<Integer> is divisible by 5 using streams.
+        Set<Integer> divisibleByFive=Set.of(12,7,67,89,65,4);
+        System.out.println("\nCheck if number is divisible by 5");
+        divisibleByFive.stream().filter(x -> x%5==0).forEach(x-> System.out.println(x));
+        
+        //11.Check if all elements in a Set<Integer> are positive numbers.
+        Set<Integer> positiveNumber=Set.of(12,7,67,89,65,4,-9,78,-91);
+        System.out.println("\nCheck if all elements are positive numbers:");
+        positiveNumber.stream().filter(x -> x>0).forEach(x -> System.out.print(x+", "));
+        
+        //12.
+        
+        
+        
+        
+        
+        
+        
+        
+        
 	}
 }
