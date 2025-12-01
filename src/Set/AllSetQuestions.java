@@ -9,6 +9,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+import javax.security.auth.x500.X500Principal;
+
 public class AllSetQuestions {
 
 	public static void main(String[] args) {
@@ -99,15 +101,23 @@ public class AllSetQuestions {
         System.out.println("\nCheck if all elements are positive numbers:");
         positiveNumber.stream().filter(x -> x>0).forEach(x -> System.out.print(x+", "));
         
-        //12.
+        //12.Convert a Set<Integer> to a comma-separated string using Collectors.joining() .
+        Set<String> commaName=Set.of("mohan","ppoja","vaibhav","pritesh");
+        System.out.println("\n\nConvert set to comma-seperated: ");
+        String result=commaName.stream().collect(Collectors.joining(", "));
+        System.out.println(result);
         
+        //13.Create a new Set<Integer> containing only odd numbers from an existing set
+        Set<Integer> oddNumber=Set.of(34,343,26,75,743,87);
+        System.out.println("\n\nContaining odd Numbers Existing Only: ");
+        Set<Integer> odd=oddNumber.stream().filter(x -> x%2==0).collect(Collectors.toSet());
+        System.out.println(odd);
         
-        
-        
-        
-        
-        
-        
+        //14.. Convert a Set<String> into a Set<Integer> representing each stringʼs length
+        Set<String> namesLength=Set.of("poja","bhushan","priti","vidya","prakash");
+        System.out.println("\nconvert set string into interger with each string's  length: ");
+        Set<Integer> result1=namesLength.stream().map(String::length).collect(Collectors.toSet());
+        System.out.println(result1);
         
 	}
 }
