@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
 import javax.security.auth.x500.X500Principal;
 
 public class AllSetQuestions {
@@ -118,6 +118,56 @@ public class AllSetQuestions {
         System.out.println("\nconvert set string into interger with each string's  length: ");
         Set<Integer> result1=namesLength.stream().map(String::length).collect(Collectors.toSet());
         System.out.println(result1);
+        
+        //15.Count the total number of characters across all strings in a Set<String> .
+        Set<String> chracterStrings=Set.of("pooja","rahul","thejas","purvesh");
+        System.out.println("Count total number of charachter in all strings");
+        chracterStrings.stream().filter(x -> x!=null).mapToInt(String::length).sum();
+        
+        //16.Print only distinct lowercase versions of all strings in a Set<String> .
+        Set<String> lowercaseDistincenames=Set.of("pooja","rahul","thejas","purvesh","pritu");
+        System.out.println("\nPrint only distince and lowercase letter Names: ");
+       lowercaseDistincenames.stream().map(x -> x.toLowerCase()).distinct().forEach(x -> System.out.print(x+", "));
+//        System.out.println(lowercase);
+        
+        //17.Convert a Set<Integer> to a List<Integer> using streams.
+        Set<Integer> convertintoList=Set.of(23,56,4,3,2,1);
+        System.out.println("\n\nSet integer convert into list integer: ");
+        List<Integer> convertlist=convertintoList.stream().collect(Collectors.toList());
+        System.out.println(convertlist);
+        
+        //18.Limit a stream from a Set<Integer> to the first 3 elements and print them.
+        Set<Integer> firstThreeLetter=Set.of(12,34,2,1,32,21);
+        System.out.println("\nLimit the stream and the only three element are print: ");
+        firstThreeLetter.stream().limit(3).forEach(x -> System.out.print(x+", "));
+        
+        //19.Skip the first 2 elements from a Set<Integer> stream and print the rest.
+        Set<Integer> skipTwoElement=Set.of(12,35,25,15,76);
+        System.out.println("\n\nSkip First Three Element: ");
+        skipTwoElement.stream().skip(2).forEach(x -> System.out.print(x+", "));
+        
+        //20.. Given a Set<String> , create a Map<String, Integer> (key = string, value = length)
+        Set<String> keyValueResult=Set.of("pooja","raju","pritesh","vaibhav");
+        System.out.println("\n\nGiven String result show in key and value pairs: ");
+        Map<String, Integer> result2=keyValueResult.stream().collect(Collectors.toMap(str -> str,str ->str.length()));
+        System.out.println(result2);
+        
+        //21.Given a Set<Integer> , find the average value using Stream API.
+        Set<Integer> average=Set.of(12,34,23,13);
+        System.out.println("\nFind the average value of numbers: ");
+        double avg=average.stream().mapToInt(n -> n).average().orElse(0);
+        System.out.println(avg);
+        
+        //22.Given a Set<Integer> , find the second highest number using streams.
+//        Set<Integer> 
+        
+        
+        
+        
+        
+        
+        
+        
         
 	}
 }
