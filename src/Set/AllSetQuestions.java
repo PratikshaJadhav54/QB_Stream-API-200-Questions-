@@ -160,7 +160,8 @@ public class AllSetQuestions {
         
         //22.Given a Set<Integer> , find the second highest number using streams.
 //        Set<Integer> 
-        
+        //fytfyfyfyfytftttdtdttt\
+        System.out.println("uyeryteytreyteuytuety");
         
         
         
